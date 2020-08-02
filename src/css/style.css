@@ -18,6 +18,9 @@
   line-height: 28.4px !important;
   font-size: 11px !important; }
 
+select {
+  height: 2rem !important; }
+
 .sih-container {
   min-height: calc(100vh - 64px);
   display: flex;

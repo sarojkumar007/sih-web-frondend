@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { getComplaintsList } from "../helpers/apicalls"
+import { getComplaintsList, isAuthenticated } from "../helpers/apicalls"
 import ComplainList from "../components/complainList"
 import { getName } from "../helpers/utils"
 
@@ -34,6 +34,8 @@ const IndexPage = () => {
             <th scope="col">Complaint</th>
             <th scope="col" className="center">Up/Down Votes</th>
             <th scope="col" className="center" style={{ 'width': '8rem' }}>Categories</th>
+            {isAuthenticated() ? (
+              <th scope="col" className="center" style={{ 'width': '8rem' }}>My voted Categories</th>) : (<></>)}
             <th scope="col" className="center">No. of Evidences</th>
             <th scope="col" className="center">No. of Comments</th>
             <th scope="col" className="center">Reported By</th>

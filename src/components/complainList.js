@@ -2,6 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby';
 import { isAuthenticated } from '../helpers/apicalls';
 import { checkStat, formatDate } from '../helpers/utils';
+import SelectCategory from './selectCategory';
 
 const ComplainList = ({data}) => {
 		const goToDetails = (e) => {
@@ -15,7 +16,10 @@ const ComplainList = ({data}) => {
 				<tr key={i}>
 					<td data-id={i + 1} onClick={goToDetails} className={isAuthenticated() ? "complaint_item" : ""} >{e.text}</td>
 					<td className="center">{`+${e.number_of_up_votes} / -${e.number_of_down_votes}`}</td>
-					<td className="center">{checkStat(e.category)}</td>
+					<td className="center input-field">{checkStat(e.category)}</td>
+					{isAuthenticated() ? (<td className="center">
+						<SelectCategory cat={e.my_voted_category} />
+					</td>) : (<></>)}
 					<td className="center">{e.number_of_evidences}</td>
 					<td className="center">{e.number_of_comments}</td>
 					<td className="center">{e.user.first_name ? e.user.first_name : "Anonymous" }</td>
