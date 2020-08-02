@@ -1,0 +1,23 @@
+.brand-logo{
+	padding-left: 1rem !important;
+}
+.loader-container{
+	margin-top: 3rem;
+}
+.card{
+	border-radius: 4px !important;
+	overflow: hidden !important;
+
+	& .card-content{
+		padding: 12px 12px 8px;
+		& .card-title{
+			line-height: 24px !important;
+			font-size: 20px !important;
+		}
+	}
+}
+.btn-small {
+  height: 28.4px !important;
+  line-height: 28.4px !important;
+  font-size: 11px !important;
+}
