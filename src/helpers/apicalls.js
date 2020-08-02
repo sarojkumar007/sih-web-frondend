@@ -1,4 +1,4 @@
-const API = process.env.GATSBY_BACKEND_API;
+const API = process.env.BACKEND_API;
 
 export const isAuthenticated = () => {
 	if(typeof window !== undefined){
