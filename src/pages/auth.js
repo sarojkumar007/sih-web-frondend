@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { isAuthenticated, signin } from '../helpers/apicalls';
 import { useEffect } from 'react';
+import { navigate } from 'gatsby';
 
 
 const Auth = () => {
@@ -13,7 +14,7 @@ const Auth = () => {
 
 	useEffect(() => {
 		if(isAuthenticated()){
-			window.location.href="/";
+			navigate('/')
 		}
 		return () => {
 		}
