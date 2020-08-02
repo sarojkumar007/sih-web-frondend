@@ -17,8 +17,10 @@ const Header = ({ siteTitle, history }) => {
   }
 
   useEffect(() => {
-    var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems); // options can be added
+    if(typeof window !== undefined){
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems); // options can be added
+    }
     return () => {
     }
   }, [reload])
