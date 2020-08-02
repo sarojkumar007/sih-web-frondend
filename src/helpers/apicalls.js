@@ -1,7 +1,7 @@
 const API = process.env.GATSBY_BACKEND_API;
 
 export const isAuthenticated = () => {
-	if(typeof window !== undefined){
+	if(typeof window !== `undefined`){
 		const authData = JSON.parse(localStorage.getItem('userData'));
 		if(authData && authData.token){
 			return true;

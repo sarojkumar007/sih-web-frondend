@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const getName = () => {
-	if (typeof window !== undefined) {
+	if (typeof window !== `undefined`) {
 		const userData = JSON.parse(localStorage.getItem('userData'));
 		if (userData && userData.first_name) {
 			return userData.first_name

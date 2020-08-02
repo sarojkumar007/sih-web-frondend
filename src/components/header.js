@@ -17,7 +17,7 @@ const Header = ({ siteTitle, history }) => {
   }
 
   useEffect(() => {
-    if(typeof window !== undefined){
+    if(typeof window !== `undefined`){
       var elems = document.querySelectorAll('.sidenav');
       M.Sidenav.init(elems); // options can be added
     }
