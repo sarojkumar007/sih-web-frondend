@@ -31,6 +31,9 @@ const Header = ({ siteTitle, history }) => {
         <li>
           <a href="/">Home</a>
         </li>
+        <li>
+          <a href="/manual">Learn More</a>
+        </li>
         {isAuthenticated() && true /*isAuthenticated().user.role === 1*/ && (
           <li>
             <a href="/adminDashboard">Admin DashBoard</a>

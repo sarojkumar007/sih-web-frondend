@@ -1,7 +1,18 @@
 import React from 'react'
 import { formatDate, checkStat } from '../helpers/utils'
+import { isAuthenticated, up_down_vote_evidence } from '../helpers/apicalls'
 
 const EvidenceList = ({data}) => {
+	const up_down_vote = (id, type) => {
+		const token = isAuthenticated();
+		const data = {
+			"evidence_id": id,
+			"vote_type": type
+		}
+		up_down_vote_evidence(data, token)
+		.then(res => console.log(res))
+		.catch(err => console.log(err))
+	}
 	return data.map((item,i) => {
 		return (
 			<div className="col s12 m4 row" key={i}>
@@ -27,8 +38,8 @@ const EvidenceList = ({data}) => {
 							</div>
 						</div>
 						<div className="card-action valign-wrapper">
-							<button className="col s6 btn btn-small waves-effect red" style={{ "marginRight": 	"3px" }}>Wrong</button>
-							<button className="col s6 btn btn-small waves-effect blue" style={{"marginLeft":"3px"}}>Correct</button>
+						<button className="col s6 btn btn-small waves-effect red" style={{ "marginRight": "3px" }} onClick={() => {up_down_vote(item.id, 'down_vote')}}>Wrong</button>
+						<button className="col s6 btn btn-small waves-effect blue" style={{ "marginLeft": "3px" }} onClick={() => {up_down_vote(item.id, 'up_vote')}}>Correct</button>
 						</div>
 					</div>
 			</div>

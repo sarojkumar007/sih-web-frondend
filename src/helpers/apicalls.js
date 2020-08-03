@@ -4,7 +4,7 @@ export const isAuthenticated = () => {
 	if(typeof window !== `undefined`){
 		const authData = JSON.parse(localStorage.getItem('userData'));
 		if(authData && authData.token){
-			return true;
+			return authData.token;
 		}
 	}
 	return false;
@@ -64,4 +64,21 @@ export const getEvidenceList = (id) => {
 		}
 	)
 	.catch(err => console.log(err))
+}
+
+export const up_down_vote_evidence = (data, token) => {
+	// {evidence_id,vote_type}
+	return fetch(`${API}/api/up_vote_complaint_or_evidence/`, {
+		method: 'POST',
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/x-www-form-urlencoded",
+			Authorization: `token ${token}`
+		},
+		body: new URLSearchParams(data).toString()
+	})
+		.then(data => {
+			return data.json()
+		})
+		.catch(err => console.log(err))
 }
