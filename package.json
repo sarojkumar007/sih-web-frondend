@@ -23,7 +23,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "2.0.5",
     "autoprefixer": "^7.1.4",
     "npm-run-all": "^4.1.1",
